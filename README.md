@@ -82,3 +82,34 @@ csistoragecapacities                           storage.k8s.io/v1                
 storageclasses                    sc           storage.k8s.io/v1                      false        StorageClass
 volumeattachments                              storage.k8s.io/v1                      false        VolumeAttachment
 ```
+
+
+❯ microk8s kubectl delete pods --all
+pod "nginx1" deleted
+
+generating a yaml file ( dry run it and also output the yaml to the console )
+
+kubectl run nginx2 --image=nginx -o yaml --dry-run=client 
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx2
+  name: nginx2
+spec:
+  containers:
+  - image: nginx
+    name: nginx2
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+```
+
+
+
+like - kubectl exec -it <pod name> -c <container name> bash
+Note - when exec into a pod ( container ) , if it's a multi container pod , then the first container will be execed into
