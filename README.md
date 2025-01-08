@@ -113,3 +113,11 @@ status: {}
 
 like - kubectl exec -it <pod name> -c <container name> bash
 Note - when exec into a pod ( container ) , if it's a multi container pod , then the first container will be execed into
+
+
+Docker file   |  kubernetes manifest 
+
+{Entrypointy}   | Command               -> command that will be run by the container
+<CMD>           | args                  -> argument passed to the container
+
+{/bin/ping} <-c 20 google.com>
